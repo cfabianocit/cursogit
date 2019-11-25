@@ -1,0 +1,120 @@
+Curso de GIT
+1 - Estrutura do GIT
+- Working Directory -  código que está sendo implementado (untracked)
+- Staging Area - código intermediário que foi pego do work directory para ser alterado (git add)
+- Git Directory - código estável do programa  (git commit)
+
+2 - Documentação oficial do GIT
+- Site: https://git-scm.com/
+- book git: https://git-scm.com/book/en/v2
+- Tutorial: https://git-scm.com/docs
+
+3 - Instalação
+- Para linux
+- MAC OS
+- Windows
+
+4 - Criando um repositório (Repo)
+- Criar um repositório para trabalhar
+- Criar uma pasta local no note
+- Git init
+
+5 - Clonando um repo
+- Git clone [origem] [destino]
+- Exemplo: Git clone https://github.com/Exeu/apai-io.git pastarepo
+
+6 - Comando Status
+- comando para veriifcar o status do repositório, ele mostrar quais arquivos estão untracked
+- Exemplo: git status
+
+7 - Comando add
+- Comando para adicionar um ou mais arquivos no repositório. Pode ser utilizado para adicionar uma pasta tbm
+- Exemplo: git add [nome do arquivo]
+- Exemplo: git add *.txt
+- Exemplo: git add ./[nome da pasta]
+- Exemplo: git add . //adiciona todos os arquivo no repo
+
+8 - Comando git commit
+- adiciona ao repo do git o seu código estável.
+- Exemplo: git commit -m "mensagem" 
+
+9 - Ignorar arquivos ou pastas para comitar no git
+- criar o arquivo .gitignore
+- Adicione arquivos ou pasta neste arquivo e salve.
+git 
+
+10 - Verificar a diferença de um arquivo alterado em relação ao ultimo commit
+- Para verificar se existe diferença entre o ultimo commit e o arquivo atutal: git diff
+- Para verificar se existe diferneça entre o ultimo commit e o arquivo que está no stage: git diff --staged
+
+11 - Verificar o log de commits
+- git log
+- Para visualizar o log com as alterações: git log -p (para sair digite q)
+- Para visualizar o log específico de um commint: git log -p -[numero do commit -1, -2....]
+- Exemplo: git log - p -1
+- Exemplo: git log --pretty=oneline (visualiar o log de forma resumida)
+
+12 - Relatório do git
+- gitk
+
+13 - Editar o comentário de um commit realizado.
+- git commit --amend -m "outro commit (alterei apenas a mensagem do commit)"
+
+
+14 - Retirar um arquivo da stage area
+- git reset HEAD [nome do arquivo]
+- Exemplo: git reset HEAD novoarquivophp.php
+
+15 - Para descartar as alterações de um arquivo depois que ele sofreu commit
+- git checkout -- [nome do arquivo]
+- Exemplo: git checkout -- novoarquivophp.php
+
+16 - remover um arquivo do repositorio
+- git rm [nome do arquivo]
+- Exemplo: git rm build.xml
+- Se tentar commitar com um arquivo excluido do repositório, o git não vai deixar. tem que remove-lo do repositório primeiro.
+
+17 - Uso de tags
+- Tag é um atalho utilizado para auxiliar o dev no desenvolvimento e simplificar o acesso ao código alterado
+- Para criar uma tag: git tag -a [nome da tag] -m [descrição da tag]
+- Exemplo: git tag -a V1.0 -m "Versão 1.0"
+- Para criar uma tag associada a um commit: git tag -a [nome da tag] [chave do commit] -m [descrição da tag]
+- Para visualizar o detalhe de uma tag: git show [nome da tag]
+- Para "pegar" o código de uma tag: git checkout [nome da tag]
+- Para excluir uma tag: git tag -d [nome da tag]
+- Para visualizar a lista de tags: git tags
+
+18 - Uso de branches
+- Para criar uma branch: git branch [nome da branch]
+- Para utilizar a branch criada: git checkout [nome da brachk]
+- Para utilizar a branch master: git checkout master
+- Para listar todas as brachs: git branch
+- Para excluir uma brach: git branch -d [nome da branch]
+
+19 - Para fazer o merge de código para a branch master
+- Fazer o checkout para branch master: git checkout master
+- Fazer o merge: git merge [nome da branch]
+
+20 - Acessar um repo em um server da rede (rede windows)
+- Criar uma pasta e compartilhar para todos da rede 
+- Criar uma pasta cliente1
+- Iniciar o repo: git init --bare
+- Fazer um clone do repositório na maquina local: git clone file:[caminho da rede] [alias]
+- Exemplo: git clone file:////127.0.0.1/projetos/cliente1 prjrede1
+- Fazer um push:git push [srv repo destino] [branch master]
+- Exemplo: git push origin master
+- Para saber o nome do servidor remoto (srv repo destino): git remote
+- Para "pegar" os dados do server e trazer para a maquina local sem clone: git pull [srv repo destino] [branch master] (CUIDADO POIS O PULL FAZ MERGE NA TORA)
+- Exemplo: git pull origin master
+- Para "pegar" os dados do server para a maquina local sem clone sem usar o pull:  git fetch [srv repo destino] [branch] (TEM QUE CRIAR UMA BRANCH ESPECÍFICA)
+- Exemplo: git fetch origin alteracoes
+
+21 - Git Hub
+- usuario: cfabiano@ciandt.com
+- senha: G1thu3@20
+- Criar uma SSH-Keygen: ssh-keygen
+- Editar o arquivo C:\Users\cfabiano\.ssh\id_rsa.pub, e copiar a chave publica criada
+- Acessar as sua configurações de usuario no git hub e colar a cha publica na seção SSH keys
+- Criar um repositório clicando no botão new
+- Copiar o endereço SSH e fazer o clone do repositório na sua máquina: git clone git@github.com:cfabianocit/cursogit.git github1
+- Segue o fluxo: git add, git commit e git push (veja anotações acima)
